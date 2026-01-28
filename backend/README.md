@@ -108,6 +108,8 @@ Certifique-se de que o MongoDB está rodando localmente:
 
 ```bash
 # macOS (com Homebrew)
+brew tap mongodb/brew
+brew install mongodb-community
 brew services start mongodb-community
 
 # Linux (systemd)
