@@ -84,7 +84,6 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
     setLoading(true);
     try {
       await signUp(nome.trim(), username.toLowerCase().trim(), senha);
-      // A navegação será feita automaticamente pelo AuthContext
     } catch (error: any) {
       Alert.alert('Erro no Cadastro', error.message);
     } finally {

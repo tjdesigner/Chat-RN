@@ -30,7 +30,6 @@ class SocketService {
       console.error('Erro na conexão:', error.message);
     });
 
-    // Reativar listeners após reconexão
     this.socket.on('connect', () => {
       this.listeners.forEach((callbacks, event) => {
         callbacks.forEach(callback => {
@@ -83,7 +82,6 @@ class SocketService {
     }
   }
 
-  // Métodos específicos do chat
   sendMessage(receiverId: string, content: string) {
     this.emit('send_message', { receiverId, content });
   }

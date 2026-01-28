@@ -30,13 +30,11 @@ const AppNavigator = () => {
         }}
       >
         {!user ? (
-          // Auth Stack
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
           </>
         ) : (
-          // App Stack
           <>
             <Stack.Screen 
               name="Home" 

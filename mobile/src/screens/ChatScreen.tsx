@@ -79,7 +79,6 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ navigation, route }) => {
       const response = await messageService.getMessages(otherUser._id);
       if (response.success) {
         setMessages(response.messages);
-        // Marcar mensagens não lidas como lidas
         markUnreadMessagesAsRead(response.messages);
       }
     } catch (error) {
@@ -90,12 +89,10 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ navigation, route }) => {
   };
 
   const markUnreadMessagesAsRead = async (msgs: Message[]) => {
-    // Encontrar mensagens não lidas que foram enviadas para mim
     const unreadMessages = msgs.filter(
       msg => !msg.read && msg.receiver._id === currentUser?._id
     );
 
-    // Marcar cada mensagem como lida
     for (const message of unreadMessages) {
       try {
         await messageService.markAsRead(message._id);
@@ -106,11 +103,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ navigation, route }) => {
   };
 
   const setupSocketListeners = () => {
-    // Nova mensagem recebida
     socketService.on('new_message', (message: Message) => {
       if (message.sender._id === otherUser._id) {
         setMessages(prev => [...prev, message]);
-        // Marcar a nova mensagem como lida imediatamente
         if (message.receiver._id === currentUser?._id) {
           messageService.markAsRead(message._id).catch(err => 
             console.error('Erro ao marcar mensagem como lida:', err)
@@ -122,7 +117,6 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ navigation, route }) => {
       }
     });
 
-    // Mensagem enviada confirmada
     socketService.on('message_sent', (message: Message) => {
       setMessages(prev => [...prev, message]);
       setTimeout(() => {
@@ -130,14 +124,12 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ navigation, route }) => {
       }, 100);
     });
 
-    // Usuário está digitando
     socketService.on('user_typing', ({ userId }: { userId: string }) => {
       if (userId === otherUser._id) {
         setIsTyping(true);
       }
     });
 
-    // Usuário parou de digitar
     socketService.on('user_stop_typing', ({ userId }: { userId: string }) => {
       if (userId === otherUser._id) {
         setIsTyping(false);
@@ -156,11 +148,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ navigation, route }) => {
   const handleTyping = (text: string) => {
     setInputText(text);
 
-    // Enviar evento de digitação
     if (text.length > 0) {
       socketService.typing(otherUser._id);
 
-      // Parar de digitar após 2 segundos de inatividade
       if (typingTimeoutRef.current) {
         clearTimeout(typingTimeoutRef.current);
       }

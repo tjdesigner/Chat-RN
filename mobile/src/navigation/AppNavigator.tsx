@@ -2,7 +2,6 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAuth } from '../context/AuthContext';
 
-// Screens
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -30,7 +29,6 @@ const AppNavigator: React.FC = () => {
       }}
     >
       {user ? (
-        // Authenticated screens
         <>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen 
@@ -43,7 +41,6 @@ const AppNavigator: React.FC = () => {
           />
         </>
       ) : (
-        // Auth screens
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />

@@ -1,7 +1,5 @@
 import { Platform } from 'react-native';
 
-// Configurações da API
-// Use 10.0.2.2 para emulador Android, localhost para iOS simulator, ou seu IP local para dispositivo físico
 export const API_URL = __DEV__ 
   ? (Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000')
   : 'http://192.168.1.15:3000';
@@ -9,13 +7,11 @@ export const SOCKET_URL = __DEV__
   ? (Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000')
   : 'http://192.168.1.15:3000';
 
-// Storage keys
 export const STORAGE_KEYS = {
   TOKEN: '@ChatApp:token',
   USER: '@ChatApp:user',
 };
 
-// Cores do app
 export const COLORS = {
   primary: '#007AFF',
   secondary: '#5856D6',
@@ -35,7 +31,6 @@ export const COLORS = {
   white: '#FFFFFF',
   black: '#000000',
   
-  // Chat colors
   myMessage: '#007AFF',
   otherMessage: '#E5E5EA',
   myMessageText: '#FFFFFF',
@@ -45,7 +40,6 @@ export const COLORS = {
   offline: '#8E8E93',
 };
 
-// Fontes
 export const FONTS = {
   regular: 'System',
   medium: 'System',
@@ -53,7 +47,6 @@ export const FONTS = {
   light: 'System',
 };
 
-// Tamanhos
 export const SIZES = {
   xs: 12,
   sm: 14,
