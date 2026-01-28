@@ -42,7 +42,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     loadUsers();
     setupSocketListeners();
 
-    // Listener para quando voltar da tela de chat
     const unsubscribe = navigation.addListener('focus', () => {
       loadUnreadCounts();
     });
@@ -61,12 +60,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     try {
       const response = await userService.getAllUsers();
       if (response.success) {
-        // Filtrar o usuário atual da lista
         const filteredUsers = response.users.filter(
           (u: User) => u._id !== currentUser?._id
         );
         setUsers(filteredUsers);
-        // Carregar contadores de mensagens não lidas
         await loadUnreadCounts();
       }
     } catch (error) {
@@ -82,7 +79,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       console.log('Unread counts response:', response);
       if (response.success && response.unreadCounts) {
         console.log('Updating unread counts:', response.unreadCounts);
-        // Atualizar contadores de mensagens não lidas para cada usuário
         setUsers(prevUsers =>
           prevUsers.map(user => {
             const count = response.unreadCounts[user._id] || 0;
@@ -100,7 +96,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   };
 
   const setupSocketListeners = () => {
-    // Atualizar lista de usuários online
     socketService.on('online_users', (onlineUsers: User[]) => {
       setUsers(prevUsers =>
         prevUsers.map(user => ({
@@ -110,7 +105,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       );
     });
 
-    // Usuário ficou online
     socketService.on('user_online', ({ userId }: { userId: string }) => {
       setUsers(prevUsers =>
         prevUsers.map(user =>
@@ -119,7 +113,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       );
     });
 
-    // Usuário ficou offline
     socketService.on('user_offline', ({ userId }: { userId: string }) => {
       setUsers(prevUsers =>
         prevUsers.map(user =>
@@ -128,10 +121,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       );
     });
 
-    // Receber nova mensagem privada
     socketService.on('private_message', (message: any) => {
       console.log('Received private message:', message);
-      // Incrementar contador de mensagens não lidas do remetente
       setUsers(prevUsers =>
         prevUsers.map(user => {
           if (user._id === message.sender._id) {
@@ -144,10 +135,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       );
     });
 
-    // Mensagem foi lida
     socketService.on('message_read', ({ receiverId }: { receiverId: string }) => {
       console.log('Message read by:', receiverId);
-      // Decrementar contador de mensagens não lidas
       setUsers(prevUsers =>
         prevUsers.map(user => {
           if (user._id === receiverId && user.unreadCount && user.unreadCount > 0) {
@@ -179,7 +168,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   };
 
   const handleChatPress = (user: User) => {
-    // Limpar contador de mensagens não lidas ao abrir o chat
     setUsers(prevUsers =>
       prevUsers.map(u =>
         u._id === user._id ? { ...u, unreadCount: 0 } : u
@@ -213,7 +201,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             {hasUnread && (
               <View style={styles.badge}>
                 <Text style={styles.badgeText}>
-                  {item.unreadCount && item.unreadCount > 99 ? '99+' : item.unreadCount}
+                  {item.unreadCount && item.unreadCount > 99 ? '99+' : String(item.unreadCount || 0)}
                 </Text>
               </View>
             )}

@@ -10,7 +10,6 @@ const api = axios.create({
   },
 });
 
-// Interceptor para adicionar token em todas as requisições
 api.interceptors.request.use(
   async (config) => {
     const token = await AsyncStorage.getItem(STORAGE_KEYS.TOKEN);
@@ -22,25 +21,22 @@ api.interceptors.request.use(
     return config;
   },
   (error) => {
-    return Promise.reject(error);
+    throw error;
   }
 );
 
-// Interceptor para tratar erros
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (error.response?.status === 401) {
-      // Token inválido ou expirado
       await AsyncStorage.removeItem(STORAGE_KEYS.TOKEN);
       await AsyncStorage.removeItem(STORAGE_KEYS.USER);
     }
     
-    return Promise.reject(error);
+    throw error;
   }
 );
 
-// Serviços de Autenticação
 export const authService = {
   register: async (nome: string, username: string, senha: string) => {
     const response = await api.post('/api/auth/register', {
@@ -60,7 +56,6 @@ export const authService = {
   },
 };
 
-// Serviços de Usuários
 export const userService = {
   getMe: async () => {
     const response = await api.get('/api/users/me');
@@ -78,7 +73,6 @@ export const userService = {
   },
 };
 
-// Serviços de Mensagens
 export const messageService = {
   getMessages: async (userId: string) => {
     const response = await api.get(`/api/messages/${userId}`);

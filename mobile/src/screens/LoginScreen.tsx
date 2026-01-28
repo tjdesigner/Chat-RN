@@ -60,7 +60,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     setLoading(true);
     try {
       await signIn(username.toLowerCase().trim(), senha);
-      // A navegação será feita automaticamente pelo AuthContext
     } catch (error: any) {
       Alert.alert('Erro no Login', error.message);
     } finally {

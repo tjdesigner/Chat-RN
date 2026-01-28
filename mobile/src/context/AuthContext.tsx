@@ -44,7 +44,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setToken(storedToken);
         setUser(JSON.parse(storedUser));
         
-        // Conectar socket
         socketService.connect(storedToken);
       }
     } catch (error) {
@@ -94,7 +93,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setToken(newToken);
         setUser(newUser);
         
-        // Conectar socket
         socketService.connect(newToken);
       } else {
         throw new Error(response.error || 'Erro ao cadastrar');
@@ -110,7 +108,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const signOut = async () => {
     try {
-      // Desconectar socket
       socketService.disconnect();
       
       await AsyncStorage.removeItem(STORAGE_KEYS.TOKEN);

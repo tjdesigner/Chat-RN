@@ -1,0 +1,15 @@
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/CMakeFiles/appmodules.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/CMakeFiles/edit_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/CMakeFiles/rebuild_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/rnasyncstorage_autolinked_build/CMakeFiles/react_codegen_rnasyncstorage.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/rnasyncstorage_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/rnasyncstorage_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/safeareacontext_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/safeareacontext_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/rnscreens_autolinked_build/CMakeFiles/react_codegen_rnscreens.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/rnscreens_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/rnscreens_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/RNVectorIconsSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/.cxx/Debug/6h6k336v/x86_64/RNVectorIconsSpec_autolinked_build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/Users/gipsyy/Documents/poc/Teste_Tecnico_ReactNative/mobile/android/app/build/intermediates/cxx/Debug/6h6k336v/obj/armeabi-v7a
