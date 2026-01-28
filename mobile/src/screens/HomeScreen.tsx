@@ -201,7 +201,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             {hasUnread && (
               <View style={styles.badge}>
                 <Text style={styles.badgeText}>
-                  {item.unreadCount && item.unreadCount > 99 ? '99+' : item.unreadCount}
+                  {item.unreadCount && item.unreadCount > 99 ? '99+' : String(item.unreadCount || 0)}
                 </Text>
               </View>
             )}
